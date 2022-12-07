@@ -59,11 +59,11 @@ class ViewController: UIViewController
         
         if(computerEasy && currentTurn == Turn.Cross) {
             addToBoard(sender)
-            if(!checkForVictory(CROSS)){
+            if(!checkForVictory(CROSS) || (fullBoard())){
                 determinComputerTurnPosition()
             }
-            
         }
+        
         if checkForVictory(CROSS){
             crossesScore += 1
             resultAlert(title: "Crosses Win!")
@@ -72,11 +72,11 @@ class ViewController: UIViewController
             noughtsScore += 1
             resultAlert(title: "Noughts Win!")
         }
-        
         if(fullBoard()) {
             
             resultAlert(title: "Draw")
         }
+       
     }
     
     func determinComputerTurnPosition() {
