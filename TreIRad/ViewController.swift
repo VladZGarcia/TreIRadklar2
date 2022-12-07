@@ -41,8 +41,6 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         initBoard()
-        
-        
     }
     
     func initBoard(){
@@ -56,8 +54,6 @@ class ViewController: UIViewController
         board.append(c2)
         board.append(c3)
     }
-    
-    
 
     @IBAction func boardTapAction(_ sender: UIButton) {
         
@@ -65,14 +61,9 @@ class ViewController: UIViewController
             addToBoard(sender)
             if(!checkForVictory(CROSS)){
                 determinComputerTurnPosition()
-                
             }
             
         }
-        
-        
-        // func determinComputerMovePosition
-        
         if checkForVictory(CROSS){
             crossesScore += 1
             resultAlert(title: "Crosses Win!")
@@ -86,21 +77,20 @@ class ViewController: UIViewController
             
             resultAlert(title: "Draw")
         }
-        
     }
     
     func determinComputerTurnPosition() {
-        var turnPosition = board.randomElement()
-        
-        while (!(turnPosition?.title(for: .normal) == nil)){
-            turnPosition = board.randomElement()
+            var turnPosition = board.randomElement()
+            
+            while (!(turnPosition?.title(for: .normal) == nil)){
+                turnPosition = board.randomElement()
+                
+            }
+            if(currentTurn == Turn.Nought){
+                addToBoard(turnPosition!)
+            }
             
         }
-        if(currentTurn == Turn.Nought){
-            addToBoard(turnPosition!)
-        }
-        
-    }
     
     func checkForVictory(_ s :String) -> Bool {
         // Horizontal
@@ -131,7 +121,6 @@ class ViewController: UIViewController
                 return true
         }
               
-
         return false
     }
     
@@ -146,10 +135,8 @@ class ViewController: UIViewController
         let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (_) in
             self.resetBoard()
-            
         }))
         self.present(ac, animated: true)
-        
     }
     
     func resetBoard() {
@@ -164,8 +151,6 @@ class ViewController: UIViewController
         else if firstTurn == Turn.Cross {
             firstTurn = Turn.Nought
             turnLabel.text = NOUGHT
-            
-            
         }
         
         currentTurn = firstTurn
