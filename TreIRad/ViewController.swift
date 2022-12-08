@@ -35,7 +35,8 @@ class ViewController: UIViewController
     
     var noughtsScore = 0
     var crossesScore = 0
-    var computerEasy = true
+    var computerEasy = false
+    var computerMid = true
     
     override func viewDidLoad()
     {
@@ -57,7 +58,7 @@ class ViewController: UIViewController
 
     @IBAction func boardTapAction(_ sender: UIButton) {
         
-        if(computerEasy && currentTurn == Turn.Cross) {
+        if(currentTurn == Turn.Cross) {
             
             addToBoard(sender)
             if checkForVictory(CROSS){
@@ -88,25 +89,165 @@ class ViewController: UIViewController
                     }
                 }
             }
-            
-            
-            
         }
     }
     
     func determinComputerTurnPosition() {
-        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
+        
+        //Level 1
+        if (computerEasy){
             var turnPosition = self.board.randomElement()!
+                        
+                        while (!(turnPosition.title(for: .normal) == nil)){
+                            turnPosition = self.board.randomElement()!
+                            
+                        }
+                            self.addToBoard(turnPosition)
+        } else if(computerMid){
+            //let computerMove =
+            var computerMove = checkForPosibleWin(NOUGHT)
+             
             
-            while (!(turnPosition.title(for: .normal) == nil)){
-                turnPosition = self.board.randomElement()!
-                
-            }
-                self.addToBoard(turnPosition)
+            self.addToBoard(computerMove!)
             
-        //}
+            //self.addToBoard(checkForPosibleWin(CROSS)!)
+        }
+       // while (!(turnPosition.title(for: .normal) == nil)){
+       //     turnPosition = self.board.randomElement()
+       //
+       // }
+       //     self.addToBoard(turnPosition)
+       //
+        // Level 2
+        
+        
+        // Level 3
+        
+        // Level 4
             
         }
+    
+    func checkForPosibleWin(_ s :String) -> UIButton? {
+        
+        let winPatterns: Set<Set<UIButton>> = [[a1, a2, a3], [b1, b2, b3], [c1, c2, c3], [a1, b1, c1], [a2, b2, c2], [a3, b3, c3], [a1, b2, c3], [a3, b2, c1]]
+        
+        let computerMoves: [UIButton] = board.compactMap { $0 }.filter { $0.title(for: .normal) == s }
+        //let humanMoves: [UIButton] = board.compactMap { $0 }.filter { $0.title(for: .normal) == "CROSS" }
+        //let computerPositions = Set(computerMoves.map { $0.board.Index })
+
+        for pattern in winPatterns {
+            let winPositions = pattern.subtracting(computerMoves)
+            
+            if winPositions.count == 1 {
+                if winPositions.first?.title(for: .normal) == nil {
+                    print("winposition!")
+                    self.addToBoard(winPositions.first!)
+                    return winPositions.first!
+                    
+                }
+            }
+        }
+        
+        let humanMoves: [UIButton] = board.compactMap { $0 }.filter { $0.title(for: .normal) == CROSS }
+        for pattern in winPatterns {
+            let winPositions = pattern.subtracting(humanMoves)
+            
+            if winPositions.count == 1 {
+                if winPositions.first?.title(for: .normal) == nil {
+                    print("humanWinposition!")
+                    self.addToBoard(winPositions.first!)
+                    return winPositions.first!
+                    
+                }
+            }
+        }
+        
+        // Horizontal
+//       if thisSymbol(a1, s) && thisSymbol(a2, s) {
+//               return a3
+//       }
+//       if thisSymbol(a1, s) && thisSymbol(a3, s) {
+//               return a2
+//       }
+//       if  thisSymbol(a2, s) && thisSymbol(a3, s) {
+//               return a1
+//       }
+//       if thisSymbol(b1, s) && thisSymbol(b2, s) {
+//               return b3
+//       }
+//       if thisSymbol(b1, s) && thisSymbol(b3, s) {
+//               return b2
+//       }
+//       if thisSymbol(b2, s) && thisSymbol(b3, s) {
+//               return b1
+//       }
+//       if thisSymbol(c1, s) && thisSymbol(c2, s) {
+//               return c3
+//       }
+//       if thisSymbol(c1, s) && thisSymbol(c3, s) {
+//               return c2
+//       }
+//       if thisSymbol(c3, s) && thisSymbol(c2, s) {
+//               return c1
+//       }
+//       // Vertical
+//       if thisSymbol(a1, s) && thisSymbol(b1, s) {
+//               return c1
+//       }
+//       if thisSymbol(a1, s) && thisSymbol(c1, s) {
+//               return b1
+//       }
+//       if thisSymbol(c1, s) && thisSymbol(b1, s) {
+//               return a1
+//       }
+//       if thisSymbol(a2, s) && thisSymbol(b2, s) {
+//               return c2
+//       }
+//       if thisSymbol(a2, s) && thisSymbol(c2, s) {
+//               return b2
+//       }
+//       if thisSymbol(c2, s) && thisSymbol(b2, s) {
+//               return a2
+//       }
+//       if thisSymbol(a3, s) && thisSymbol(b3, s) {
+//               return c3
+//       }
+//       if thisSymbol(a3, s) && thisSymbol(c3, s) {
+//               return b3
+//       }
+//       if thisSymbol(c3, s) && thisSymbol(b3, s) {
+//               return a3
+//       }
+//       // Diagonal
+//       if thisSymbol(a1, s) && thisSymbol(b2, s) {
+//               return c3
+//       }
+//       if thisSymbol(a1, s) && thisSymbol(c3, s) {
+//               return b2
+//       }
+//       if thisSymbol(c3, s) && thisSymbol(b2, s) {
+//               return a1
+//       }
+//       if thisSymbol(a3, s) && thisSymbol(b2, s) {
+//               return c1
+//       }
+//       if thisSymbol(a3, s) && thisSymbol(c1, s) {
+//               return b2
+//       }
+//       if thisSymbol(c1, s) && thisSymbol(b2, s) {
+//               return a3
+//       }
+//
+        var randomPosition = self.board.randomElement()!
+                    
+            while (!(randomPosition.title(for: .normal) == nil)){
+                randomPosition = self.board.randomElement()!
+                
+            }
+        print("randomPosition!")
+       return randomPosition
+        
+    }
     
     func checkForVictory(_ s :String) -> Bool {
         // Horizontal
@@ -174,7 +315,7 @@ class ViewController: UIViewController
         
         currentTurn = firstTurn
         print("\(currentTurn)")
-        if(computerEasy && firstTurn == Turn.Nought) {
+        if(firstTurn == Turn.Nought) {
             //if(!checkForVictory(CROSS) || (fullBoard())){
                     determinComputerTurnPosition()
             //}
