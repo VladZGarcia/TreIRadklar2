@@ -58,37 +58,53 @@ class ViewController: UIViewController
     @IBAction func boardTapAction(_ sender: UIButton) {
         
         if(computerEasy && currentTurn == Turn.Cross) {
-            addToBoard(sender)
-            if(!checkForVictory(CROSS) || (fullBoard())){
-                determinComputerTurnPosition()
-            }
-        }
-        
-        if checkForVictory(CROSS){
-            crossesScore += 1
-            resultAlert(title: "Crosses Win!")
-        }
-        if checkForVictory(NOUGHT){
-            noughtsScore += 1
-            resultAlert(title: "Noughts Win!")
-        }
-        if(fullBoard()) {
             
-            resultAlert(title: "Draw")
+            addToBoard(sender)
+            if checkForVictory(CROSS){
+                crossesScore += 1
+                resultAlert(title: "Crosses Win!")
+                return
+            }
+            if(self.fullBoard()) {
+                
+                self.resultAlert(title: "Draw")
+                return
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
+                if(!(self.checkForVictory(self.CROSS)) || self.fullBoard()){
+                    self.determinComputerTurnPosition()
+                    
+                    if self.checkForVictory(self.NOUGHT){
+                        self.noughtsScore += 1
+                        self.resultAlert(title: "Noughts Win!")
+                        return
+                        
+                    }
+                    if(self.fullBoard()) {
+                        
+                        self.resultAlert(title: "Draw")
+                        return
+                    }
+                }
+            }
+            
+            
+            
         }
-       
     }
     
     func determinComputerTurnPosition() {
-            var turnPosition = board.randomElement()
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
+            var turnPosition = self.board.randomElement()!
             
-            while (!(turnPosition?.title(for: .normal) == nil)){
-                turnPosition = board.randomElement()
+            while (!(turnPosition.title(for: .normal) == nil)){
+                turnPosition = self.board.randomElement()!
                 
             }
-            if(currentTurn == Turn.Nought){
-                addToBoard(turnPosition!)
-            }
+                self.addToBoard(turnPosition)
+            
+        //}
             
         }
     
@@ -134,12 +150,15 @@ class ViewController: UIViewController
         
         let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (_) in
+            print("pushed reset")
             self.resetBoard()
+            
         }))
         self.present(ac, animated: true)
     }
     
     func resetBoard() {
+        print("in reset")
         for button in board {
             button.setTitle(nil, for: .normal)
             button.isEnabled = true
@@ -154,8 +173,11 @@ class ViewController: UIViewController
         }
         
         currentTurn = firstTurn
-        if(computerEasy && currentTurn == Turn.Nought) {
-                determinComputerTurnPosition()
+        print("\(currentTurn)")
+        if(computerEasy && firstTurn == Turn.Nought) {
+            //if(!checkForVictory(CROSS) || (fullBoard())){
+                    determinComputerTurnPosition()
+            //}
         }
         
     }
