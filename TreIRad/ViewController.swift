@@ -230,9 +230,9 @@ class ViewController: UIViewController
         currentTurn = firstTurn
         print("\(currentTurn)")
         if(firstTurn == Turn.Nought) {
-            //if(!checkForVictory(CROSS) || (fullBoard())){
+            
                     determinComputerTurnPosition()
-            //}
+            
         }
         
     }
