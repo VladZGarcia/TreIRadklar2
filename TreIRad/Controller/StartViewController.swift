@@ -13,15 +13,12 @@ class StartViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var secondPlayerTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
-    
     @IBOutlet weak var levelTextLabel: UILabel!
     @IBOutlet weak var nameTextLabel: UILabel!
     @IBOutlet weak var multiPlayerButton: UIButton!
     @IBOutlet weak var singlePlayerButton: UIButton!
     @IBOutlet weak var easyButton: UIButton!
-    
     @IBOutlet weak var mediumButton: UIButton!
-    
     @IBOutlet weak var hardButton: UIButton!
     let segueToGameView = "segueToGame"
     
@@ -33,6 +30,12 @@ class StartViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        enum UIKeyboardType : Int, @unchecked Sendable {
+            case namePhonePad
+        }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        overrideUserInterfaceStyle = .light
         firstPlayerTextField.isHidden = true
         secondPlayerTextField.isHidden = true
         startButton.isHidden = true
@@ -43,13 +46,19 @@ class StartViewController: UIViewController, UITextFieldDelegate{
         hardButton.isHidden = true
         
     }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     @IBAction func twoPlayerButton(_ sender: UIButton) {
+        nameTextLabel.isHidden = false
         firstPlayerTextField.isHidden = false
+        firstPlayerTextField.placeholder = "Player 1"
         secondPlayerTextField.isHidden = false
+        secondPlayerTextField.placeholder = "Player 2"
         startButton.isHidden = false
-        multiPlayerButton.isHidden = true
-        singlePlayerButton.isHidden = true
+        multiPlayerButton.isHidden = false
+        singlePlayerButton.isHidden = false
         levelTextLabel.isHidden = true
         easyButton.isHidden = true
         mediumButton.isHidden = true
@@ -57,20 +66,17 @@ class StartViewController: UIViewController, UITextFieldDelegate{
         
     }
     
-    
     @IBAction func startButton(_ sender: UIButton) {
-        performSegue(withIdentifier: segueToGameView, sender: self)
+        if ((firstPlayerTextField.text) != nil && (secondPlayerTextField.text) != nil) {
+           multiplayer = true
+            performSegue(withIdentifier: segueToGameView, sender: self)
+        }
         
         
     }
-    
-    
-    
-    
-    
     @IBAction func singlePlayerButton(_ sender: UIButton) {
         multiplayer = false
-        multiPlayerButton.isHidden = true
+        multiPlayerButton.isHidden = false
         singlePlayerButton.isHidden = true
         firstPlayerTextField.isHidden = false
         secondPlayerTextField.isHidden = true
@@ -113,15 +119,22 @@ class StartViewController: UIViewController, UITextFieldDelegate{
                     destinationVC.playerNameOne = firstPlayerTextField.text ?? "Player one"
                     destinationVC.playerNameTwo = secondPlayerTextField.text ?? "Player two"
                 }
-                destinationVC.playerNameOne = firstPlayerTextField.text ?? "Player one"
-                destinationVC.playerNameTwo = "Dator AI"
-                destinationVC.computerEasy = levelEasy
-                destinationVC.computerMid = levelMid
-                destinationVC.computerHard = levelHard
-                
+                if (!multiplayer) {
+                    destinationVC.playerNameOne = firstPlayerTextField.text ?? "Player one"
+                    destinationVC.playerNameTwo = "Computer "
+                    destinationVC.computerEasy = levelEasy
+                    destinationVC.computerMid = levelMid
+                    destinationVC.computerHard = levelHard
+                }
             }
         }
     }
+   // @IBAction func unwindToStartView(segue: UIStoryboardSegue) {
+   //     //print("unwind")
+   //
+   // }
+    
+    
     
 
 }

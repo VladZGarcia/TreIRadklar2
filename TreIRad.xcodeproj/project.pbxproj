@@ -16,6 +16,7 @@
 		64357E91293746970031CF4F /* TreIRadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64357E90293746970031CF4F /* TreIRadTests.swift */; };
 		64357E9B293746970031CF4F /* TreIRadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64357E9A293746970031CF4F /* TreIRadUITests.swift */; };
 		64357E9D293746970031CF4F /* TreIRadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64357E9C293746970031CF4F /* TreIRadUITestsLaunchTests.swift */; };
+		6454F6E6294B33D800E7CA53 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454F6E5294B33D800E7CA53 /* GameModel.swift */; };
 		64A6DEA92947A8B9005C8029 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6DEA82947A8B8005C8029 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		64357E96293746970031CF4F /* TreIRadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreIRadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64357E9A293746970031CF4F /* TreIRadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreIRadUITests.swift; sourceTree = "<group>"; };
 		64357E9C293746970031CF4F /* TreIRadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreIRadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6454F6E5294B33D800E7CA53 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		64A6DEA82947A8B8005C8029 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,9 +105,9 @@
 			children = (
 				64357E79293746910031CF4F /* AppDelegate.swift */,
 				64357E7B293746910031CF4F /* SceneDelegate.swift */,
-				64A6DEA82947A8B8005C8029 /* StartViewController.swift */,
-				64357E7D293746910031CF4F /* ViewController.swift */,
-				64357E7F293746910031CF4F /* Main.storyboard */,
+				647960EC294CD0B00039E56A /* Model */,
+				647960EE294CD0E30039E56A /* View */,
+				647960ED294CD0BA0039E56A /* Controller */,
 				64357E82293746960031CF4F /* Assets.xcassets */,
 				64357E84293746960031CF4F /* LaunchScreen.storyboard */,
 				64357E87293746960031CF4F /* Info.plist */,
@@ -128,6 +130,31 @@
 				64357E9C293746970031CF4F /* TreIRadUITestsLaunchTests.swift */,
 			);
 			path = TreIRadUITests;
+			sourceTree = "<group>";
+		};
+		647960EC294CD0B00039E56A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6454F6E5294B33D800E7CA53 /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		647960ED294CD0BA0039E56A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				64A6DEA82947A8B8005C8029 /* StartViewController.swift */,
+				64357E7D293746910031CF4F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		647960EE294CD0E30039E56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64357E7F293746910031CF4F /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6454F6E6294B33D800E7CA53 /* GameModel.swift in Sources */,
 				64357E7E293746910031CF4F /* ViewController.swift in Sources */,
 				64A6DEA92947A8B9005C8029 /* StartViewController.swift in Sources */,
 				64357E7A293746910031CF4F /* AppDelegate.swift in Sources */,
