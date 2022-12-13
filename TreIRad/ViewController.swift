@@ -267,7 +267,7 @@ class ViewController: UIViewController {
         }
         
         currentTurn = firstTurn
-        print("\(currentTurn)")
+        
         if(firstTurn == Turn.Nought) {
             
             determinComputerTurnPosition()
