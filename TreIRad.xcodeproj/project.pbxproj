@@ -16,6 +16,7 @@
 		64357E91293746970031CF4F /* TreIRadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64357E90293746970031CF4F /* TreIRadTests.swift */; };
 		64357E9B293746970031CF4F /* TreIRadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64357E9A293746970031CF4F /* TreIRadUITests.swift */; };
 		64357E9D293746970031CF4F /* TreIRadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64357E9C293746970031CF4F /* TreIRadUITestsLaunchTests.swift */; };
+		64A6DEA92947A8B9005C8029 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6DEA82947A8B8005C8029 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		64357E96293746970031CF4F /* TreIRadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreIRadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64357E9A293746970031CF4F /* TreIRadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreIRadUITests.swift; sourceTree = "<group>"; };
 		64357E9C293746970031CF4F /* TreIRadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreIRadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		64A6DEA82947A8B8005C8029 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				64357E79293746910031CF4F /* AppDelegate.swift */,
 				64357E7B293746910031CF4F /* SceneDelegate.swift */,
+				64A6DEA82947A8B8005C8029 /* StartViewController.swift */,
 				64357E7D293746910031CF4F /* ViewController.swift */,
 				64357E7F293746910031CF4F /* Main.storyboard */,
 				64357E82293746960031CF4F /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64357E7E293746910031CF4F /* ViewController.swift in Sources */,
+				64A6DEA92947A8B9005C8029 /* StartViewController.swift in Sources */,
 				64357E7A293746910031CF4F /* AppDelegate.swift in Sources */,
 				64357E7C293746910031CF4F /* SceneDelegate.swift in Sources */,
 			);
@@ -445,12 +449,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TreIRad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TreIRad2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -473,12 +478,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TreIRad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TreIRad2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

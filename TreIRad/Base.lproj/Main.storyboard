@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qbd-Yl-Lm6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -182,6 +183,7 @@
                             <constraint firstItem="Ne2-bM-Jcj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="yxs-bA-Tad"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wfj-n8-qdR"/>
                     <connections>
                         <outlet property="a1" destination="9U3-5R-hCq" id="MxM-xC-qIR"/>
                         <outlet property="a2" destination="QQh-6s-1Uq" id="sPY-H0-u45"/>
@@ -193,11 +195,64 @@
                         <outlet property="c2" destination="eQ5-0X-NBH" id="36v-wU-aPh"/>
                         <outlet property="c3" destination="rMd-Ap-asa" id="5ZP-EG-vKp"/>
                         <outlet property="turnLabel" destination="x0e-Ct-RBj" id="Dcj-zz-7ap"/>
+                        <outlet property="turnName" destination="Klz-NR-cYk" id="4On-IT-f8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="-27"/>
+            <point key="canvasLocation" x="1212.9770992366412" y="-20.422535211267608"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="2a5-yZ-S1M">
+            <objects>
+                <viewController id="qbd-Yl-Lm6" customClass="StartViewController" customModule="TreIRad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XI4-8U-1As">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPl-xL-zPg">
+                                <rect key="frame" x="138" y="518" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SinglePlayer"/>
+                                <connections>
+                                    <action selector="singlePlayerButton:" destination="qbd-Yl-Lm6" eventType="touchUpInside" id="8BX-y7-VXO"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Player 1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="874-Pu-RDb">
+                                <rect key="frame" x="148" y="338" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Player 2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmh-R3-YD1">
+                                <rect key="frame" x="148" y="397" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xu-HL-xZT">
+                                <rect key="frame" x="143" y="247" width="108" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="MultiPlayer"/>
+                                <connections>
+                                    <action selector="twoPlayerButton:" destination="qbd-Yl-Lm6" eventType="touchUpInside" id="LQe-Og-6ho"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zw0-UG-Oum"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstPlayerTextField" destination="874-Pu-RDb" id="oib-kL-1Jj"/>
+                        <outlet property="secondPlayerTextField" destination="xmh-R3-YD1" id="jcB-O6-wwh"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueToGame" modalPresentationStyle="fullScreen" id="nc0-eH-s14"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzb-yI-h9M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="414.50381679389312" y="-20.422535211267608"/>
         </scene>
     </scenes>
     <resources>
