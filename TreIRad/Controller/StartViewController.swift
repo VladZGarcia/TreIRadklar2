@@ -86,8 +86,6 @@ class StartViewController: UIViewController, UITextFieldDelegate{
         easyButton.isHidden = false
         mediumButton.isHidden = false
         hardButton.isHidden = false
-        
-        
     }
     
     @IBAction func easyButton(_ sender: UIButton) {
@@ -129,13 +127,6 @@ class StartViewController: UIViewController, UITextFieldDelegate{
             }
         }
     }
-   // @IBAction func unwindToStartView(segue: UIStoryboardSegue) {
-   //     //print("unwind")
-   //
-   // }
-    
-    
-    
 
 }
 

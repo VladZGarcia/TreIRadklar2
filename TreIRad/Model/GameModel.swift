@@ -61,10 +61,7 @@ class GameModel {
         }
         else if modelFirstTurn == Turn.Cross {
             modelFirstTurn = Turn.Nought
-            //turnLabel.text = "\(NOUGHT)"
         }
-        //currentTurn = firstTurn
-        
         return modelFirstTurn
     }
     
@@ -77,14 +74,7 @@ class GameModel {
         }
         return turnPosition
     }
-   // func levelMid() {
-   //
-   //
-   // }
-   // func levelHard() {
-   //
-   //
-   // }
+    
     func checkForVictory(_ s :String) -> Bool {
         
         // Horizontal
@@ -130,9 +120,6 @@ class GameModel {
                 
                 if winPositions.count == 1 {
                     if winPositions.first?.title(for: .normal) == nil {
-                        
-                       // turnInfo(self.gameModel.addToBoard(winPositions.first!))
-                        
                         return winPositions.first!
                     }
                 }
@@ -142,11 +129,7 @@ class GameModel {
                 
                 if winPositions.count == 1 {
                     if winPositions.first?.title(for: .normal) == nil {
-                        
-                        //turnInfo(self.gameModel.addToBoard(winPositions.first!))
-                        
                         return winPositions.first!
-                        
                     }
                 }
             }
@@ -163,16 +146,11 @@ class GameModel {
                 
                 if smartPositions.count == 2 {
                     if (smartPositions.first?.title(for: .normal) == nil) {
-                        
-                        //turnInfo(self.gameModel.addToBoard(smartPositions.first!))
-                        
                         return smartPositions.first!
                     }
                 }
             }
         }
-        
-            
             var randomPosition = levelEasy()
             while (!(randomPosition.title(for: .normal) == nil)){
                 randomPosition = levelEasy()
